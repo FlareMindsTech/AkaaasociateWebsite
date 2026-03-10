@@ -1,0 +1,92 @@
+/* src/components/SectionTitle.css */
+
+.section-title {
+  max-width: 680px;
+  margin-bottom: 56px;
+}
+
+/* Alignment */
+.section-title--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.section-title--left {
+  margin-left: 0;
+  text-align: left;
+}
+
+.section-title--right {
+  margin-left: auto;
+  margin-right: 0;
+  text-align: right;
+}
+
+/* Eyebrow label */
+.section-title__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  padding: 6px 14px;
+  background: rgba(225, 29, 46, 0.08);
+  border-radius: 99px;
+  margin-bottom: 18px;
+}
+
+/* Heading */
+.section-title__heading {
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: var(--color-secondary);
+  margin-bottom: 16px;
+}
+
+/* Dark theme overrides */
+.section-title--dark .section-title__heading {
+  color: var(--color-white);
+}
+
+.section-title--dark .section-title__label {
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Subtitle */
+.section-title__subtitle {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--color-gray-500);
+  max-width: 560px;
+}
+
+.section-title--center .section-title__subtitle {
+  margin: 0 auto;
+}
+
+.section-title--dark .section-title__subtitle {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Accent line for left-aligned */
+.section-title--left .section-title__heading::after,
+.section-title--right .section-title__heading::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  background: var(--color-primary);
+  border-radius: 2px;
+  margin-top: 16px;
+}
+
+.section-title--right .section-title__heading::after {
+  margin-left: auto;
+}

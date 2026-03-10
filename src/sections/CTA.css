@@ -1,0 +1,101 @@
+/* src/sections/CTA.css */
+.cta {
+  padding: var(--section-padding);
+}
+
+.cta__banner {
+  background: var(--color-primary);
+  border-radius: var(--radius-xl);
+  padding: 80px 48px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  color: var(--color-white);
+  box-shadow: 0 24px 48px rgba(225, 29, 46, 0.2);
+}
+
+/* Abstract Pattern overlay */
+.cta__banner::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.cta__banner::after {
+  content: "";
+  position: absolute;
+  bottom: -30%;
+  right: -5%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, transparent 60%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.cta__content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.cta__title {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 900;
+  color: var(--color-white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.cta__desc {
+  font-size: 18px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 40px;
+}
+
+.cta__actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Override btn for dark pattern */
+.cta__actions .btn--primary {
+  background: var(--color-secondary);
+  border-color: var(--color-secondary);
+  color: white;
+}
+
+.cta__actions .btn--primary:hover {
+  background: #222;
+  box-shadow: 0 8px 24px rgba(17, 17, 17, 0.4);
+}
+
+.cta__actions .cta__btn-secondary {
+  color: white;
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.cta__actions .cta__btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+}
+
+@media (max-width: 640px) {
+  .cta__banner {
+    padding: 64px 24px;
+    border-radius: var(--radius-lg);
+  }
+}
