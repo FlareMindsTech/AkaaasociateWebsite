@@ -3,6 +3,7 @@ import React from "react";
 import { CheckCircle2 } from "lucide-react";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
+import blueprintsImg from "../assets/img/blue.png";
 import "./About.css";
 
 const About = () => {
@@ -13,7 +14,7 @@ const About = () => {
         <div className="about__gallery">
           <div className="about__img-main">
             <img
-              src="https://images.unsplash.com/photo-1541888086925-0c771f65bb5b?w=800&q=80"
+              src={blueprintsImg}
               alt="Engineers reviewing blueprints"
               loading="lazy"
             />
