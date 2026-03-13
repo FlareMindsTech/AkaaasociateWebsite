@@ -4,6 +4,7 @@ import { CheckCircle2 } from "lucide-react";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
 import blueprintsImg from "../assets/img/blue.png";
+import houseImg from "../assets/img/houseFront.jpg";
 import "./About.css";
 
 const About = () => {
@@ -21,7 +22,7 @@ const About = () => {
           </div>
           <div className="about__img-sub">
             <img
-              src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?w=600&q=80"
+              src={houseImg}
               alt="Completed residential project"
               loading="lazy"
             />

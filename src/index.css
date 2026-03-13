@@ -173,6 +173,7 @@ h6 {
 /* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar {
   width: 6px;
+  
 }
 
 ::-webkit-scrollbar-track {
@@ -180,7 +181,7 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-gray-300);
+  background: var(--color-primary-light);
   border-radius: 99px;
 }
 

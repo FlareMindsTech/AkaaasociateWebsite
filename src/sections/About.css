@@ -146,22 +146,81 @@
   }
 }
 
-@media (max-width: 640px) {
-  .about__img-main {
+@media (max-width: 767px) {
+  .about {
+    padding: 60px 16px;
+  }
+
+  .about__inner {
+    gap: 60px; /* Space between gallery and content */
+  }
+
+  .about__gallery {
     width: 100%;
+    max-width: 480px; /* Center the image group */
+    margin: 0 auto;
+    display: block; /* Remove flex column */
+  }
+
+  .about__img-main {
+    width: 85%;
+    position: relative;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
   }
 
   .about__img-sub {
-    width: 60%;
-    right: -10px;
-    border-width: 8px;
+    position: absolute;
+    width: 55%;
+    top: auto;
+    bottom: -30px;
+    right: 0;
+    border: 8px solid var(--color-bg);
+    border-radius: var(--radius-md);
+    transform: none;
+    box-shadow: var(--shadow-md);
   }
 
   .about__experience-badge {
-    padding: 20px;
+    position: absolute;
+    top: -15px;
+    left: -5px;
+    width: auto;
+    padding: 16px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    margin: 0;
   }
 
   .about__badge-num {
-    font-size: 32px;
+    font-size: 28px;
+  }
+
+  .about__badge-text {
+    text-align: left;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .about__badge-text br {
+    display: block;
+  }
+
+  .about__content {
+    width: 100%;
+    margin-top: 10px; /* Additional breathing room */
+  }
+
+  /* Reduce heading font size slightly */
+  .about__content .section-title__heading {
+    font-size: clamp(26px, 6vw, 32px);
+  }
+
+  /* Ensure text blocks don't stretch edge-to-edge */
+  .about__text {
+    font-size: 16px;
   }
 }

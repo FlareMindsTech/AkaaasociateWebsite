@@ -14,13 +14,35 @@ const NAV_LINKS = [
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = React.useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      const currentY = window.scrollY;
+      const atTop = currentY < 20;
+
+      // At top: reset to transparent, always visible
+      if (atTop) {
+        setScrolled(false);
+        setHidden(false);
+        lastScrollY.current = currentY;
+        return;
+      }
+
+      setScrolled(true);
+
+      // Scrolling down → hide; scrolling up → show
+      if (currentY > lastScrollY.current + 8) {
+        setHidden(true);
+      } else if (currentY < lastScrollY.current - 8) {
+        setHidden(false);
+      }
+
+      lastScrollY.current = currentY;
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -50,7 +72,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      <header className={`navbar ${scrolled ? "scrolled" : ""} ${hidden ? "hidden" : ""}`}>
         <div className="navbar__container">
 
           {/* Left: Logo Badge */}
@@ -97,8 +119,16 @@ const Navbar = () => {
         </div>
       </header>
 
-      {/* Full Screen Mobile Menu */}
+      {/* Backdrop overlay */}
+      <div
+        className={`navbar__backdrop ${menuOpen ? "open" : ""}`}
+        onClick={() => setMenuOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Premium Slide-In Mobile Menu Panel */}
       <div className={`navbar__mobile-menu ${menuOpen ? "open" : ""}`}>
+        {/* Top: Logo + Close */}
         <div className="navbar__mobile-header">
           <a
             href="/"
@@ -114,28 +144,52 @@ const Navbar = () => {
             onClick={() => setMenuOpen(false)}
             aria-label="Close menu"
           >
-            <X size={32} />
+            <X size={26} />
           </button>
         </div>
 
+        <div className="navbar__mobile-divider" />
+
+        {/* Middle: Nav Links */}
         <nav className="navbar__mobile-nav">
-          {NAV_LINKS.map((link) => (
+          {NAV_LINKS.map((link, i) => (
             <a
               key={link.label}
               href={link.href}
               className="navbar__mobile-link"
+              style={{ "--item-index": i }}
               onClick={(e) => { e.preventDefault(); handleNavClick(link.href); }}
             >
-              {link.label}
+              <span>{link.label}</span>
             </a>
           ))}
+        </nav>
+
+        {/* Brand Statement */}
+        <div className="navbar__mobile-brand-block">
+          <div className="navbar__mobile-divider" />
+          <div className="navbar__mobile-tagline">
+            <span className="navbar__mobile-tagline-dot" aria-hidden="true">●</span>
+            <p className="navbar__mobile-tagline-main">
+              Building modern spaces<br />with integrity &amp; precision.
+            </p>
+          </div>
+          <p className="navbar__mobile-tagline-sub">
+            Trusted architects delivering high-quality residential and commercial projects.
+          </p>
+        </div>
+
+        {/* Bottom: CTA */}
+        <div className="navbar__mobile-footer">
+          <div className="navbar__mobile-divider" />
+          <p className="navbar__mobile-footer-label">Ready to build?</p>
           <button
             className="navbar__mobile-cta-btn"
-            onClick={() => handleNavClick("/#contact")}
+            onClick={() => { handleNavClick("/#contact"); }}
           >
             Get Free Consultation
           </button>
-        </nav>
+        </div>
       </div>
     </>
   );
