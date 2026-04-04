@@ -1,48 +1,97 @@
-# Akaa Associate Website
+# 🌐 Akaa Associate Website
 
-This project is the official website for **Akaa Associate**, developed as part of the FlareMinds internship program.
+This is the official website for **Akaa Associate**, developed and maintained by **Srilakshman K** during his internship at **FlareMinds**, and now actively used in production.
 
-## Tech Stack
+🔗 **Live Website:** https://www.akaassociate.com
 
-- React
-- Vite
-- JavaScript
-- CSS
+---
 
-## Project Structure
+## 🏢 Organization
 
-src
-components → reusable UI components  
-pages → main website pages  
-sections → homepage sections  
-assets → images and icons  
-data → static content
+Developed under: **FlareMinds**
+Role: Software Developer
 
-## Getting Started
+---
 
-Clone the repository:
+## 🚀 Tech Stack
 
+* **Frontend:** React + Vite
+* **Language:** JavaScript (ES6+)
+* **Styling:** CSS
+* **Build Tool:** Vite
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+│── components/   # Reusable UI components  
+│── pages/        # Main website pages  
+│── sections/     # Homepage sections  
+│── assets/       # Images and icons  
+│── data/         # Static content  
+```
+
+---
+
+## ⚙️ Getting Started (Development)
+
+### 1. Clone the repository
+
+```
 git clone https://github.com/FlareMindsTech/AkaaassociateWebsite.git
+```
 
-Install dependencies:
+### 2. Install dependencies
 
+```
 npm install
+```
 
-Start development server:
+### 3. Run development server
 
+```
 npm run dev
+```
 
-Open the project in browser:
+### 4. Open in browser
 
+```
 http://localhost:5173
+```
 
-## Features
+---
 
-- Responsive design
-- Modern UI
-- Optimized performance
-- Modular component structure
+## ✨ Features
 
-## Author
+* Fully responsive design across devices
+* Clean and modern UI/UX
+* Optimized performance using Vite
+* Modular and scalable component architecture
+* Production-ready deployment
 
-Developed by Srilakshman K during the FlareMinds internship.
+---
+
+## 🌍 Deployment
+
+The project is successfully deployed and live at:
+👉 https://www.akaassociate.com
+
+---
+
+## 👨‍💻 Author
+
+**Srilakshman K**
+Software Developer @ FlareMinds
+
+* GitHub: https://github.com/SrilakshmanK
+* Portfolio: https://srilakshmank.github.io/portfolio/
+* LinkedIn: https://www.linkedin.com/in/Srilakshman-K-WebDeveloper
+
+---
+
+## 📌 Acknowledgment
+
+This project was initially built during the **FlareMinds Internship Program** and later enhanced as part of ongoing professional work.
+
