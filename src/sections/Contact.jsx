@@ -27,7 +27,10 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="contact-method__label">Address</h4>
-                  <p className="contact-method__val">4th Floor, AKA Tower, MG Road<br />Hyderabad – 500001, Telangana</p>
+                  <p className="contact-method__val">
+                    3/251, Pakkirisamy Nagar,<br />
+                    Vadaseri Road, Mannargudi, 614001
+                  </p>
                 </div>
               </div>
 
@@ -37,7 +40,9 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="contact-method__label">Phone</h4>
-                  <a href="tel:+919876543210" className="contact-method__val">+91 98765 43210</a>
+                  <a href="tel:+918667051418" className="contact-method__val">
+                    +91 86670 51418
+                  </a>
                 </div>
               </div>
 
@@ -47,7 +52,12 @@ const Contact = () => {
                 </div>
                 <div>
                   <h4 className="contact-method__label">Email Address</h4>
-                  <a href="mailto:info@akaassociates.in" className="contact-method__val">info@akaassociates.in</a>
+                  <a
+                    href="mailto:akaassociatesglobal@gmail.com"
+                    className="contact-method__val"
+                  >
+                    akaassociatesglobal@gmail.com
+                  </a>
                 </div>
               </div>
             </div>

@@ -121,15 +121,22 @@ const Footer = () => {
           <ul className="footer__contact-list">
             <li className="footer__contact-item">
               <MapPin size={16} />
-              <span>4th Floor, AKA Tower, MG Road, Hyderabad – 500001, Telangana</span>
+              <span>
+                3/251, Pakkirisamy Nagar,<br />
+                Vadaseri Road, Mannargudi – 614001
+              </span>
             </li>
+
             <li className="footer__contact-item">
               <Phone size={16} />
-              <a href="tel:+919876543210">+91 98765 43210</a>
+              <a href="tel:+918667051418">+91 86670 51418</a>
             </li>
+
             <li className="footer__contact-item">
               <Mail size={16} />
-              <a href="mailto:info@akaassociates.in">info@akaassociates.in</a>
+              <a href="mailto:akaassociatesglobal@gmail.com">
+                akaassociatesglobal@gmail.com
+              </a>
             </li>
           </ul>
         </div>
