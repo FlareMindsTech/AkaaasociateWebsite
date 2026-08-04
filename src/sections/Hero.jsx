@@ -55,8 +55,8 @@ const Hero = () => {
         {/* Stats */}
         <div className="hero__stats">
           {[
-            { value: "18+", label: "Years Experience" },
-            { value: "340+", label: "Projects Completed" },
+            { value: "5+", label: "Years Experience" },
+            { value: "+100", label: "Projects Completed" },
             { value: "98%", label: "Client Satisfaction" },
             { value: "12", label: "States Across India" },
           ].map((stat, i) => (
