@@ -9,10 +9,10 @@ import Testimonials from "../sections/Testimonials";
 import CTA from "../sections/CTA";
 import Contact from "../sections/Contact";
 
-const Home = () => {
+const Home = ({ theme }) => {
   return (
     <>
-      <Hero />
+      <Hero theme={theme} />
       <Services />
       <Projects />
       <Process />

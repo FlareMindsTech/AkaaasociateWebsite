@@ -1,0 +1,148 @@
+/* src/pages/ProjectsPage.css */
+
+/* ==========================================================
+   ProjectsPage — Full Portfolio Page (/projects)
+   Page header, dynamic category filters, and project grid.
+   ========================================================== */
+
+.projects-page {
+  padding-top: 120px; /* space below fixed navbar */
+  padding-bottom: 100px;
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  transition: var(--theme-transition);
+}
+
+
+/* ---------- Page Header ---------- */
+
+.projects-page__header {
+  margin-bottom: 8px;
+}
+
+
+/* ---------- Category Filters ---------- */
+
+.projects-page__filters {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+}
+
+.projects-page__filter-btn {
+  padding: 9px 24px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.projects-page__filter-btn:hover {
+  background: var(--color-surface-hover);
+  color: var(--color-text);
+  border-color: var(--color-border-hover);
+}
+
+.projects-page__filter-btn--active {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 14px var(--color-primary-glow);
+}
+
+.projects-page__filter-btn--active:hover {
+  background: var(--color-primary-dark);
+  color: #FFFFFF;
+  border-color: var(--color-primary-dark);
+}
+
+.projects-page__filter-btn:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+
+/* ---------- Project Grid ---------- */
+/* Desktop: 3 columns, Tablet: 2 columns, Mobile: 2 compact columns */
+
+.projects-page__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+
+/* ---------- Empty State ---------- */
+
+.projects-page__empty {
+  text-align: center;
+  padding: 80px 20px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  color: var(--color-text-muted);
+}
+
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 1024px) {
+  .projects-page {
+    padding-top: 100px;
+    padding-bottom: 80px;
+  }
+
+  .projects-page__filters {
+    margin-bottom: 36px;
+    gap: 8px;
+  }
+
+  .projects-page__filter-btn {
+    padding: 8px 20px;
+    font-size: 13px;
+  }
+
+  .projects-page__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+}
+
+
+/* ---------- Mobile ---------- */
+
+@media (max-width: 768px) {
+  .projects-page {
+    padding-top: 88px;
+    padding-bottom: 64px;
+  }
+
+  /* Reduce horizontal padding so 2-column cards have enough room */
+  .projects-page > .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .projects-page__filters {
+    margin-bottom: 24px;
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .projects-page__filter-btn {
+    padding: 6px 14px;
+    font-size: 11px;
+  }
+
+  .projects-page__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}

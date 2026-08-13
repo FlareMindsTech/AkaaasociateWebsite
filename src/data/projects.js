@@ -1,69 +1,125 @@
 // src/data/projects.js
+
 export const projects = [
+  // ============================================================
+  // RESIDENTIAL PROJECTS
+  // ============================================================
+
   {
     id: 1,
-    title: "The Grand Residency",
+    title: "Residential Project 01",
     category: "Residential",
-    location: "Hyderabad, Telangana",
-    year: "2023",
-    description:
-      "A 48-unit luxury apartment complex featuring Italian marble finishes, smart-home integration, and landscaped courtyards.",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80",
-    tags: ["Luxury", "Residential", "Smart Home"],
+    images: [
+      "/akaprojects/Residential/project1/1.webp",
+      "/akaprojects/Residential/project1/2.webp",
+      "/akaprojects/Residential/project1/3.webp",
+      "/akaprojects/Residential/project1/4.webp",
+    ],
   },
+
   {
     id: 2,
-    title: "AKA Commerce Hub",
-    category: "Commercial",
-    location: "Bengaluru, Karnataka",
-    year: "2023",
-    description:
-      "A modern 12-storey commercial tower with Grade-A office spaces, rooftop lounge, and sustainable energy systems.",
-    image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80",
-    tags: ["Commercial", "Sustainability", "Grade A"],
+    title: "Residential Project 02",
+    category: "Residential",
+    images: [
+      "/akaprojects/Residential/project2/0.webp",
+      "/akaprojects/Residential/project2/1.webp",
+      "/akaprojects/Residential/project2/2.webp",
+      "/akaprojects/Residential/project2/3.webp",
+    ],
   },
+
   {
     id: 3,
-    title: "Villa Serene",
+    title: "Residential Project 03",
     category: "Residential",
-    location: "Pune, Maharashtra",
-    year: "2022",
-    description:
-      "An exclusive gated villa community spread across 12 acres, blending contemporary architecture with natural landscaping.",
-    image: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&q=80",
-    tags: ["Villa", "Gated Community", "Landscape"],
+    images: [
+      "/akaprojects/Residential/project3/0.webp",
+      "/akaprojects/Residential/project3/3.webp",
+      "/akaprojects/Residential/project3/5.webp",
+      "/akaprojects/Residential/project3/7.webp",
+      "/akaprojects/Residential/project3/8.webp",
+    ],
   },
+
   {
     id: 4,
-    title: "Nexus Retail Plaza",
-    category: "Commercial",
-    location: "Mumbai, Maharashtra",
-    year: "2022",
-    description:
-      "A 3-level retail destination housing 80+ brands, food courts, and entertainment zones with a modern glass facade.",
-    image: "https://images.unsplash.com/photo-1555636222-cae831e670b3?w=800&q=80",
-    tags: ["Retail", "Commercial", "Glass Facade"],
+    title: "Residential Project 04",
+    category: "Residential",
+    images: [
+      "/akaprojects/Residential/project4/11.webp",
+      "/akaprojects/Residential/project4/12.webp",
+      "/akaprojects/Residential/project4/1.webp",
+      "/akaprojects/Residential/project4/2.webp",
+      "/akaprojects/Residential/project4/8.webp",
+    ],
   },
+
   {
     id: 5,
-    title: "Skyline Towers",
+    title: "Residential Project 05",
     category: "Residential",
-    location: "Chennai, Tamil Nadu",
-    year: "2021",
-    description:
-      "Twin high-rise residential towers with panoramic city views, sky gardens, and world-class amenities.",
-    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&q=80",
-    tags: ["High-Rise", "Premium", "Sky Garden"],
+    images: [
+      "/akaprojects/Residential/project5/1.webp",
+      "/akaprojects/Residential/project5/3.webp",
+      "/akaprojects/Residential/project5/4.webp",
+      "/akaprojects/Residential/project5/6.webp",
+    ],
   },
+
+  // ============================================================
+  // INTERIOR PROJECTS
+  // ============================================================
+
   {
     id: 6,
-    title: "Heritage Restoration – Old Town",
-    category: "Renovation",
-    location: "Kolkata, West Bengal",
-    year: "2021",
-    description:
-      "Sensitive restoration of a century-old heritage building blending original baroque architecture with modern interiors.",
-    image: "https://images.unsplash.com/photo-1601972599720-36938d4ecd31?w=800&q=80",
-    tags: ["Heritage", "Restoration", "Historic"],
+    title: "Interior Project 01",
+    category: "Interior",
+    images: [
+      "/akaprojects/Interior/Interior1/5.webp",
+      "/akaprojects/Interior/Interior1/6.webp",
+      "/akaprojects/Interior/Interior1/7.webp",
+      "/akaprojects/Interior/Interior1/8.webp",
+    ],
+  },
+
+  {
+    id: 7,
+    title: "Interior Project 02",
+    category: "Interior",
+    images: [
+      "/akaprojects/Interior/Interior2/1.webp",
+      "/akaprojects/Interior/Interior2/2.webp",
+      "/akaprojects/Interior/Interior2/4.webp",
+    ],
+  },
+
+  {
+    id: 8,
+    title: "Interior Project 03",
+    category: "Interior",
+    images: [
+      "/akaprojects/Interior/Interior3/10.webp",
+      "/akaprojects/Interior/Interior3/11.webp",
+      "/akaprojects/Interior/Interior3/3.webp",
+      "/akaprojects/Interior/Interior3/5.webp",
+      "/akaprojects/Interior/Interior3/6.webp",
+      "/akaprojects/Interior/Interior3/7.webp",
+      "/akaprojects/Interior/Interior3/9.webp",
+    ],
+  },
+
+  {
+    id: 9,
+    title: "Interior Project 04",
+    category: "Interior",
+    images: [
+      "/akaprojects/Interior/Interior4/2.webp",
+      "/akaprojects/Interior/Interior4/3.webp",
+      "/akaprojects/Interior/Interior4/4.webp",
+      "/akaprojects/Interior/Interior4/6.webp",
+      "/akaprojects/Interior/Interior4/7.webp",
+      "/akaprojects/Interior/Interior4/9.webp",
+    ],
   },
 ];

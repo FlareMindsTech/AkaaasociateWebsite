@@ -1,39 +1,40 @@
 // src/data/testimonials.js
+
 export const testimonials = [
   {
     id: 1,
-    name: "Rajesh Mehta",
-    title: "CEO, Mehta Industries",
+    name: "Arun Kumar",
+    title: "Homeowner, Mannargudi",
     quote:
-      "AKA Associates delivered our commercial complex on time and within budget. Their attention to detail and commitment to quality is unmatched in the industry.",
-    rating: 5,
-    avatar: "RM",
-  },
-  {
-    id: 2,
-    name: "Priya Sharma",
-    title: "Homeowner, Villa Serene",
-    quote:
-      "From the first design consultation to the final handover, the team was professional, transparent, and incredibly skilled. Our dream home became a reality.",
-    rating: 5,
-    avatar: "PS",
-  },
-  {
-    id: 3,
-    name: "Anand Krishnamurthy",
-    title: "Director, Nexus Retail Group",
-    quote:
-      "We've partnered with AKA Associates on two major retail projects. Their construction quality and project management capabilities are second to none.",
+      "AKA Associates helped us from the initial plan to the final construction. The team understood our requirements clearly and delivered a beautiful home with excellent attention to detail.",
     rating: 5,
     avatar: "AK",
   },
   {
-    id: 4,
-    name: "Sonali Patel",
-    title: "Founder, SP Real Estate",
+    id: 2,
+    name: "Keerthana Raj",
+    title: "Homeowner, Thiruvarur",
     quote:
-      "The architectural designs from AKA Associates are not just beautiful — they are smart, functional, and built to last decades. Truly world-class work.",
+      "We were looking for a modern elevation while keeping our budget under control. AKA Associates gave us practical suggestions and the final design turned out exactly the way we imagined.",
     rating: 5,
-    avatar: "SP",
+    avatar: "KR",
+  },
+  {
+    id: 3,
+    name: "Vignesh R",
+    title: "Homeowner, Mannargudi",
+    quote:
+      "The entire construction process was handled professionally. From Vasthu planning and building approval to construction, the team guided us throughout and made the process much easier.",
+    rating: 5,
+    avatar: "VR",
+  },
+  {
+    id: 4,
+    name: "Nandhini S",
+    title: "Homeowner, Needamangalam",
+    quote:
+      "AKA Associates completely transformed our old house through their renovation and repair work. The team was responsive, professional, and paid attention to even the smallest details.",
+    rating: 5,
+    avatar: "NS",
   },
 ];

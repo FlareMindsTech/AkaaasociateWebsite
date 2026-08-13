@@ -1,91 +1,106 @@
 // src/sections/Projects.jsx
 import React, { useState } from "react";
-import { MapPin, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import SectionTitle from "../components/SectionTitle";
-import Button from "../components/Button";
+import ProjectCard from "../components/projects/ProjectCard";
+import ProjectGallery from "../components/projects/ProjectGallery";
 import { projects } from "../data/projects";
 import "./Projects.css";
 
-const CATEGORIES = ["All", "Residential", "Commercial", "Renovation"];
+/**
+ * Projects Section — Homepage Featured Showcase
+ *
+ * Displays a compact selection of featured projects (maximum 3).
+ * The homepage intentionally limits the number of visible projects
+ * so it remains compact regardless of portfolio size.
+ *
+ * The full project portfolio lives on the dedicated /projects page.
+ *
+ * Selection strategy:
+ * Currently takes the first 3 projects from the dataset.
+ * To curate manually, add `featured: true` to project data and
+ * the filter below will prefer those automatically.
+ */
+
+const FEATURED_COUNT = 3;
+
+const getFeaturedProjects = (allProjects) => {
+  // If any project has `featured: true`, prefer those.
+  // Otherwise fall back to the first N projects.
+  const curated = allProjects.filter((p) => p.featured);
+  if (curated.length > 0) {
+    return curated.slice(0, FEATURED_COUNT);
+  }
+  return allProjects.slice(0, FEATURED_COUNT);
+};
 
 const Projects = () => {
-  const [activeTab, setActiveTab] = useState("All");
+  const [selectedProject, setSelectedProject] = useState(null);
 
-  const filtered =
-    activeTab === "All"
-      ? projects
-      : projects.filter((p) => p.category === activeTab);
+  const featuredProjects = getFeaturedProjects(projects);
+
+  // Separate hero (first) from secondary projects
+  const heroProject = featuredProjects[0] || null;
+  const secondaryProjects = featuredProjects.slice(1);
 
   return (
     <section className="projects section" id="projects">
       <div className="container">
+        {/* Section Header */}
         <SectionTitle
           label="Our Portfolio"
-          title="Landmark Projects<br/>Across India"
-          subtitle="Browse through our portfolio of award-winning residential, commercial, and heritage construction projects."
+          title="Selected Projects"
+          subtitle="A glimpse of our residential construction and interior design work."
         />
 
-        {/* Filter Tabs */}
-        <div className="projects__tabs">
-          {CATEGORIES.map((cat) => (
-            <button
-              key={cat}
-              className={`projects__tab ${activeTab === cat ? "projects__tab--active" : ""}`}
-              onClick={() => setActiveTab(cat)}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
+        {/* Featured Projects Showcase */}
+        <div className="projects__showcase">
+          {/* Hero — Large Featured Project */}
+          {heroProject && (
+            <ProjectCard
+              project={heroProject}
+              index={0}
+              isHero
+              onSelect={setSelectedProject}
+            />
+          )}
 
-        {/* Grid */}
-        <div className="projects__grid">
-          {filtered.map((project) => (
-            <div key={project.id} className="project-card">
-              <div className="project-card__img-wrap">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="project-card__img"
-                  loading="lazy"
+          {/* Secondary — Smaller Two-Column Projects */}
+          {secondaryProjects.length > 0 && (
+            <div className="projects__secondary-row">
+              {secondaryProjects.map((project, i) => (
+                <ProjectCard
+                  key={project.id}
+                  project={project}
+                  index={i + 1}
+                  isHero={false}
+                  onSelect={setSelectedProject}
                 />
-                <div className="project-card__overlay">
-                  <Button
-                    variant="primary"
-                    size="sm"
-                    rightIcon={<ArrowRight size={14} />}
-                  >
-                    View Details
-                  </Button>
-                </div>
-                <span className="project-card__category">{project.category}</span>
-              </div>
-              <div className="project-card__body">
-                <h3 className="project-card__title">{project.title}</h3>
-                <div className="project-card__meta">
-                  <span className="project-card__location">
-                    <MapPin size={13} />
-                    {project.location}
-                  </span>
-                  <span className="project-card__year">{project.year}</span>
-                </div>
-                <p className="project-card__desc">{project.description}</p>
-                <div className="project-card__tags">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="project-card__tag">{tag}</span>
-                  ))}
-                </div>
-              </div>
+              ))}
             </div>
-          ))}
+          )}
         </div>
 
-        <div className="projects__footer">
-          <Button variant="secondary" size="lg" rightIcon={<ArrowRight size={16} />}>
-            View All Projects
-          </Button>
+        {/* View All Projects CTA — navigates to /projects via React Router */}
+        <div className="projects__cta-wrapper">
+          <Link
+            to="/projects"
+            className="projects__cta"
+            aria-label="View all projects in the full portfolio"
+          >
+            <span className="projects__cta-text">View All Projects</span>
+            <span className="projects__cta-arrow" aria-hidden="true">→</span>
+          </Link>
         </div>
       </div>
+
+      {/* Lightbox Photo Gallery — renders only when a project is selected */}
+      {selectedProject && (
+        <ProjectGallery
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
+        />
+      )}
     </section>
   );
 };

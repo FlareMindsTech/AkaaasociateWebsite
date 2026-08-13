@@ -1,54 +1,152 @@
-/* =============================================
-   AKA Associates – Global Design System
-   ============================================= */
+/* ===================================================
+   AKA Associates – Modern Architectural Design System
+   Complete Light & Dark Mode Tokens
+   =================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap');
 
-/* ---------- CSS Variables / Design Tokens ---------- */
+/* ---------- Light Theme (Default Root) ---------- */
 :root {
-  /* Colors */
-  --color-primary: #E11D2E;
-  --color-primary-dark: #b91525;
-  --color-primary-light: #f44356;
-  --color-secondary: #111111;
-  --color-bg: #F8F9FB;
-  --color-white: #FFFFFF;
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
-  --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
-  --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
+  /* Brand Accents */
+  --color-primary: #D0241E;
+  --color-primary-dark: #A81C17;
+  --color-primary-light: #EB3C36;
+  --color-primary-subtle: rgba(208, 36, 30, 0.08);
+  --color-primary-glow: rgba(208, 36, 30, 0.25);
+
+  /* Backgrounds & Surfaces — Architectural Warm Light */
+  --color-bg: #F8F7F5;
+  --color-bg-subtle: #F0EDE8;
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #FFFFFF;
+  --color-surface-hover: #F5F3EF;
 
   /* Typography */
+  --color-text: #18181B;
+  --color-text-secondary: #52525B;
+  --color-text-muted: #71717A;
+  --color-text-inverse: #FFFFFF;
+
+  /* Borders & Dividers */
+  --color-border: #E4E2DC;
+  --color-border-subtle: #EFECE6;
+  --color-border-hover: #D4D0C8;
+
+  /* Navbar */
+  --navbar-bg-scrolled: rgba(255, 255, 255, 0.88);
+  --navbar-border: rgba(0, 0, 0, 0.06);
+  --navbar-text: #18181B;
+  --navbar-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+
+  /* Hero Section */
+  --hero-bg: #F3F1ED;
+  --hero-text: #18181B;
+  --hero-sub: #52525B;
+  --hero-label: #71717A;
+  --hero-metric-val: #18181B;
+  --hero-metric-lbl: #71717A;
+  --hero-noise-opacity: 0.15;
+
+  /* Cards & Elevate */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.10);
+
+  /* Inputs */
+  --input-bg: #FFFFFF;
+  --input-border: #DCD8D0;
+  --input-text: #18181B;
+  --input-placeholder: #A1A1AA;
+
+  /* Footer */
+  --footer-bg: #111113;
+  --footer-text: rgba(255, 255, 255, 0.72);
+  --footer-heading: #FFFFFF;
+  --footer-border: rgba(255, 255, 255, 0.08);
+
+  /* Typography Fonts */
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-display: 'Plus Jakarta Sans', 'Inter', sans-serif;
 
-  /* Spacing */
+  /* Layout & Spacing */
   --section-padding: 100px 0;
-  --container-max: 100%;
-  /* Changed from 1500px to allow full width */
-  --container-padding: 0 48px;
+  --container-max: 1280px;
+  --container-padding: 0 40px;
 
-  /* Radius */
+  /* Radii */
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-xl: 32px;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-  --shadow-lg: 0 10px 40px rgba(0, 0, 0, 0.10), 0 4px 12px rgba(0, 0, 0, 0.06);
-  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.12);
+  --radius-full: 9999px;
 
   /* Transitions */
-  --transition: all 0.25s ease;
-  --transition-slow: all 0.4s ease;
+  --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ---------- Dark Theme Overrides ---------- */
+html.dark {
+  /* Brand Accents */
+  --color-primary: #D0241E;
+  --color-primary-dark: #A81C17;
+  --color-primary-light: #EB3C36;
+  --color-primary-subtle: rgba(208, 36, 30, 0.15);
+  --color-primary-glow: rgba(208, 36, 30, 0.35);
+
+  /* Backgrounds & Surfaces — Architectural Obsidian */
+  --color-bg: #09090B;
+  --color-bg-subtle: #121215;
+  --color-surface: #121215;
+  --color-surface-elevated: #18181D;
+  --color-surface-hover: #1E1E24;
+
+  /* Typography */
+  --color-text: #FAFAFA;
+  --color-text-secondary: #A1A1AA;
+  --color-text-muted: #71717A;
+  --color-text-inverse: #18181B;
+
+  /* Borders & Dividers */
+  --color-border: #27272A;
+  --color-border-subtle: #1F1F23;
+  --color-border-hover: #3F3F46;
+
+  /* Navbar */
+  --navbar-bg-scrolled: rgba(14, 14, 18, 0.82);
+  --navbar-border: rgba(255, 255, 255, 0.08);
+  --navbar-text: #FAFAFA;
+  --navbar-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+
+  /* Hero Section */
+  --hero-bg: #09090B;
+  --hero-text: #FAFAFA;
+  --hero-sub: rgba(255, 255, 255, 0.55);
+  --hero-label: rgba(255, 255, 255, 0.45);
+  --hero-metric-val: rgba(255, 255, 255, 0.9);
+  --hero-metric-lbl: rgba(255, 255, 255, 0.35);
+  --hero-noise-opacity: 0.35;
+
+  /* Cards & Elevate */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.45), 0 4px 12px rgba(0, 0, 0, 0.25);
+  --shadow-xl: 0 20px 48px rgba(0, 0, 0, 0.6);
+
+  /* Inputs */
+  --input-bg: #141418;
+  --input-border: #2E2E35;
+  --input-text: #FAFAFA;
+  --input-placeholder: #52525B;
+
+  /* Footer */
+  --footer-bg: #070709;
+  --footer-text: rgba(255, 255, 255, 0.65);
+  --footer-heading: #FAFAFA;
+  --footer-border: rgba(255, 255, 255, 0.08);
 }
 
 /* ---------- Reset & Base ---------- */
@@ -63,16 +161,18 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  background-color: var(--color-bg);
 }
 
 body {
   font-family: var(--font-sans);
   background-color: var(--color-bg);
-  color: var(--color-secondary);
+  color: var(--color-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+  transition: var(--theme-transition);
 }
 
 img,
@@ -115,15 +215,17 @@ select {
 
 .section {
   padding: var(--section-padding);
+  position: relative;
+  transition: var(--theme-transition);
 }
 
 .section--bg {
-  background-color: var(--color-white);
+  background-color: var(--color-bg-subtle);
 }
 
 .section--dark {
-  background-color: var(--color-secondary);
-  color: var(--color-white);
+  background-color: var(--color-surface);
+  color: var(--color-text);
 }
 
 .flex {
@@ -151,7 +253,8 @@ h6 {
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.02em;
-  color: var(--color-secondary);
+  color: var(--color-text);
+  transition: color 0.3s ease;
 }
 
 .text-primary {
@@ -159,11 +262,11 @@ h6 {
 }
 
 .text-white {
-  color: var(--color-white);
+  color: #FFFFFF;
 }
 
 .text-muted {
-  color: var(--color-gray-500);
+  color: var(--color-text-muted);
 }
 
 .font-display {
@@ -172,16 +275,15 @@ h6 {
 
 /* ---------- Scrollbar ---------- */
 ::-webkit-scrollbar {
-  width: 6px;
-  
+  width: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--color-gray-100);
+  background: var(--color-bg);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-primary-light);
+  background: var(--color-border-hover);
   border-radius: 99px;
 }
 
@@ -192,26 +294,20 @@ h6 {
 /* ---------- Selection ---------- */
 ::selection {
   background: var(--color-primary);
-  color: white;
+  color: #FFFFFF;
 }
 
 /* ---------- Responsive Breakpoints ---------- */
-/* 
-  xs: < 480px
-  sm: 480px
-  md: 768px
-  lg: 1024px
-  xl: 1240px
-*/
-
 @media (max-width: 1024px) {
   :root {
     --container-padding: 0 32px;
+    --section-padding: 80px 0;
   }
 }
 
 @media (max-width: 768px) {
   :root {
-    --container-padding: 0 18px;
+    --container-padding: 0 20px;
+    --section-padding: 64px 0;
   }
 }

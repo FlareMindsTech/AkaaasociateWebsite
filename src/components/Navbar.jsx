@@ -1,28 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
+import { navigateToSection } from "../utils/navigation";
 import "./Navbar.css";
 import logoImg from "../assets/img/logo.png";
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/#services" },
-  { label: "Projects", href: "/#projects" },
+  { label: "Projects", href: "/projects" },
   { label: "About", href: "/#about" },
   { label: "Contact", href: "/#contact" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ theme, toggleTheme }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
-  const lastScrollY = React.useRef(0);
+  const lastScrollY = useRef(0);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY;
-      const atTop = currentY < 20;
+      const atTop = currentY < 24;
 
-      // At top: reset to transparent, always visible
+      // At top: hero navbar presentation, always visible, large logo
       if (atTop) {
         setScrolled(false);
         setHidden(false);
@@ -33,9 +37,9 @@ const Navbar = () => {
       setScrolled(true);
 
       // Scrolling down → hide; scrolling up → show
-      if (currentY > lastScrollY.current + 8) {
+      if (currentY > lastScrollY.current + 8 && currentY > 60) {
         setHidden(true);
-      } else if (currentY < lastScrollY.current - 8) {
+      } else if (currentY < lastScrollY.current - 6) {
         setHidden(false);
       }
 
@@ -59,30 +63,23 @@ const Navbar = () => {
 
   const handleNavClick = (href) => {
     setMenuOpen(false);
-    if (href.includes("#")) {
-      const id = href.split("#")[1];
-      const el = document.getElementById(id);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
+    navigateToSection(href, navigate);
   };
 
   return (
     <>
-      <header className={`navbar ${scrolled ? "scrolled" : ""} ${hidden ? "hidden" : ""}`}>
+      <header className={`navbar ${scrolled ? "scrolled" : "hero-navbar"} ${hidden ? "hidden" : ""}`}>
         <div className="navbar__container">
 
-          {/* Left: Logo Badge */}
+          {/* Left: Prominent Logo Badge */}
           <a
             href="/"
             className="navbar__brand"
             onClick={(e) => { e.preventDefault(); handleNavClick("/"); }}
+            aria-label="AKA Associates Home"
           >
             <div className="navbar__logo-badge">
-              <img src={logoImg} alt="AKA Associates Icon" className="navbar__logo-icon" />
+              <img src={logoImg} alt="AKA Associates Logo" className="navbar__logo-icon" />
             </div>
           </a>
 
@@ -100,20 +97,25 @@ const Navbar = () => {
             ))}
           </nav>
 
-          {/* Right: CTA & Mobile Hamburger */}
+          {/* Right: Theme Toggle, CTA & Mobile Hamburger */}
           <div className="navbar__actions">
+            <div className="navbar__theme-toggle-desktop">
+              <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+            </div>
+
             <button
               className="navbar__cta-btn"
               onClick={() => handleNavClick("/#contact")}
             >
               Get Free Consultation
             </button>
+
             <button
               className="navbar__hamburger"
               onClick={() => setMenuOpen(true)}
               aria-label="Open menu"
             >
-              <Menu size={28} />
+              <Menu size={26} />
             </button>
           </div>
         </div>
@@ -126,7 +128,7 @@ const Navbar = () => {
         aria-hidden="true"
       />
 
-      {/* Premium Slide-In Mobile Menu Panel */}
+      {/* Slide-In Mobile Menu Panel */}
       <div className={`navbar__mobile-menu ${menuOpen ? "open" : ""}`}>
         {/* Top: Logo + Close */}
         <div className="navbar__mobile-header">
@@ -136,7 +138,7 @@ const Navbar = () => {
             onClick={(e) => { e.preventDefault(); handleNavClick("/"); }}
           >
             <div className="navbar__logo-badge">
-              <img src={logoImg} alt="AKA Associates Icon" className="navbar__logo-icon" />
+              <img src={logoImg} alt="AKA Associates Logo" className="navbar__logo-icon" />
             </div>
           </a>
           <button
@@ -144,7 +146,7 @@ const Navbar = () => {
             onClick={() => setMenuOpen(false)}
             aria-label="Close menu"
           >
-            <X size={26} />
+            <X size={24} />
           </button>
         </div>
 
@@ -164,6 +166,15 @@ const Navbar = () => {
             </a>
           ))}
         </nav>
+
+        {/* Mobile Theme Toggle Section */}
+        <div className="navbar__mobile-theme-section">
+          <ThemeToggle
+            theme={theme}
+            toggleTheme={toggleTheme}
+            showLabel={true}
+          />
+        </div>
 
         {/* Brand Statement */}
         <div className="navbar__mobile-brand-block">

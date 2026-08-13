@@ -11,19 +11,21 @@
 
 .testimonial-card {
   position: relative;
-  background: var(--color-white);
+  background: var(--color-surface);
   padding: 40px;
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--color-gray-200);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
   transition: var(--transition-slow);
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .testimonial-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-xl);
-  border-color: transparent;
+  border-color: var(--color-border-hover);
 }
 
 .testimonial-card::before {
@@ -46,33 +48,37 @@
   position: absolute;
   top: 24px;
   right: 24px;
-  color: var(--color-gray-100);
+  color: var(--color-border);
+  opacity: 0.6;
   z-index: 0;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, opacity 0.3s ease;
 }
 
 .testimonial-card:hover .testimonial-card__quote-icon {
-  color: rgba(225, 29, 46, 0.08);
+  color: var(--color-primary);
+  opacity: 0.2;
 }
 
 .testimonial-card__stars {
   display: flex;
   gap: 4px;
-  color: #fbbf24;
-  /* golden yellow */
+  color: #F59E0B;
   margin-bottom: 24px;
   position: relative;
   z-index: 1;
 }
 
 .testimonial-card__quote {
-  font-size: 16px;
+  font-family: var(--font-sans);
+  font-size: 15px;
   line-height: 1.8;
-  color: var(--color-gray-700);
+  color: var(--color-text-secondary);
   font-style: italic;
   margin-bottom: 32px;
   position: relative;
   z-index: 1;
+  flex: 1;
+  transition: color 0.3s ease;
 }
 
 .testimonial-card__author {
@@ -81,27 +87,30 @@
   gap: 16px;
   position: relative;
   z-index: 1;
+  margin-top: auto;
 }
 
 .testimonial-card__avatar {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
-  background: var(--color-gray-100);
+  background: var(--color-bg-subtle);
   color: var(--color-primary);
   font-family: var(--font-display);
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--color-white);
+  border: 2px solid var(--color-border);
   box-shadow: var(--shadow-sm);
+  transition: var(--transition);
 }
 
 .testimonial-card:hover .testimonial-card__avatar {
   background: var(--color-primary);
-  color: var(--color-white);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
 }
 
 .testimonial-card__info {
@@ -113,19 +122,25 @@
   font-family: var(--font-display);
   font-size: 17px;
   font-weight: 800;
-  color: var(--color-secondary);
+  color: var(--color-text);
   line-height: 1.2;
+  transition: color 0.3s ease;
 }
 
 .testimonial-card__title {
+  font-family: var(--font-sans);
   font-size: 13px;
   font-weight: 500;
-  color: var(--color-gray-500);
+  color: var(--color-text-muted);
   margin-top: 4px;
+  transition: color 0.3s ease;
 }
 
 @media (max-width: 768px) {
   .testimonials__grid {
     grid-template-columns: 1fr;
+  }
+  .testimonial-card {
+    padding: 30px 24px;
   }
 }
