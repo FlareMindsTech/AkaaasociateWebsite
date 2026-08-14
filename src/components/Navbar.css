@@ -152,11 +152,6 @@
   gap: 18px;
 }
 
-.navbar__theme-toggle-desktop {
-  display: flex;
-  align-items: center;
-}
-
 .navbar__cta-btn {
   background: var(--color-primary);
   color: #FFFFFF;
@@ -427,8 +422,7 @@
 
 @media (max-width: 768px) {
   .navbar__nav-links,
-  .navbar__cta-btn,
-  .navbar__theme-toggle-desktop {
+  .navbar__cta-btn {
     display: none;
   }
 

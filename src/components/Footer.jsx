@@ -1,4 +1,3 @@
-// src/components/Footer.jsx
 import React from "react";
 import { useNavigate, Link } from "react-router-dom";
 import {
@@ -9,6 +8,7 @@ import {
   Facebook,
   Instagram,
 } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 import "./Footer.css";
 import logoImg from "../assets/img/logo.png";
 import { navigateToSection } from "../utils/navigation";
@@ -43,7 +43,7 @@ const SOCIAL = [
   },
 ];
 
-const Footer = () => {
+const Footer = ({ theme = "light", toggleTheme }) => {
   const navigate = useNavigate();
 
   const handleClick = (href) => {
@@ -171,13 +171,24 @@ const Footer = () => {
           <p className="footer__copyright">
             &copy; {new Date().getFullYear()} AKA Associates – Builders &amp; Architects. All rights reserved.
           </p>
-          <div className="footer__bottom-links">
-            <Link to="/privacy-policy" className="footer__bottom-link">
-              Privacy Policy
-            </Link>
-            <Link to="/terms-of-service" className="footer__bottom-link">
-              Terms of Service
-            </Link>
+          <div className="footer__bottom-right">
+            <div className="footer__bottom-links">
+              <Link to="/privacy-policy" className="footer__bottom-link">
+                Privacy Policy
+              </Link>
+              <Link to="/terms-of-service" className="footer__bottom-link">
+                Terms of Service
+              </Link>
+            </div>
+            {toggleTheme && (
+              <div className="footer__theme-toggle">
+                <ThemeToggle
+                  theme={theme}
+                  toggleTheme={toggleTheme}
+                  className="theme-toggle--footer"
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
