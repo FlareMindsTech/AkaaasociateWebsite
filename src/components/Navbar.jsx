@@ -97,12 +97,8 @@ const Navbar = ({ theme, toggleTheme }) => {
             ))}
           </nav>
 
-          {/* Right: Theme Toggle, CTA & Mobile Hamburger */}
+          {/* Right: CTA & Mobile Hamburger */}
           <div className="navbar__actions">
-            <div className="navbar__theme-toggle-desktop">
-              <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-            </div>
-
             <button
               className="navbar__cta-btn"
               onClick={() => handleNavClick("/#contact")}
