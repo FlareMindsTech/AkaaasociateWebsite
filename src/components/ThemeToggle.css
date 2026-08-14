@@ -1,0 +1,133 @@
+/* src/components/ThemeToggle.css */
+
+.theme-toggle-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle-wrap--labelled {
+  width: 100%;
+  justify-content: space-between;
+  padding: 12px 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle-label {
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.01em;
+}
+
+/* Pill button */
+.theme-toggle-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.theme-toggle-track {
+  position: relative;
+  width: 58px;
+  height: 30px;
+  border-radius: 999px;
+  background-color: var(--color-bg-subtle);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6px;
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.theme-toggle-btn:hover .theme-toggle-track {
+  border-color: var(--color-primary);
+}
+
+.theme-toggle-btn:focus-visible .theme-toggle-track {
+  box-shadow: 0 0 0 2px var(--color-primary);
+}
+
+/* Icons inside track */
+.theme-toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: color 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.theme-toggle-icon--sun {
+  color: #D97706; /* Warm amber for sun */
+  opacity: 0.9;
+}
+
+.theme-toggle-icon--moon {
+  color: #818CF8; /* Cool indigo for moon */
+  opacity: 0.9;
+}
+
+/* Light mode icon active state */
+.theme-toggle-btn--light .theme-toggle-icon--sun {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.theme-toggle-btn--light .theme-toggle-icon--moon {
+  opacity: 0.35;
+  transform: scale(0.9);
+}
+
+/* Dark mode icon active state */
+.theme-toggle-btn--dark .theme-toggle-icon--sun {
+  opacity: 0.35;
+  transform: scale(0.9);
+}
+
+.theme-toggle-btn--dark .theme-toggle-icon--moon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Moving Sliding Thumb */
+.theme-toggle-thumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 0.3s ease;
+  z-index: 2;
+  border: 1px solid var(--color-border);
+}
+
+/* Light mode thumb position (left / over sun) */
+.theme-toggle-btn--light .theme-toggle-thumb {
+  transform: translateX(0);
+  background: #FFFFFF;
+}
+
+/* Dark mode thumb position (right / over moon) */
+.theme-toggle-btn--dark .theme-toggle-thumb {
+  transform: translateX(28px);
+  background: #18181D;
+  border-color: #3F3F46;
+}

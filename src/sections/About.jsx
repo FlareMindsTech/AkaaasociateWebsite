@@ -28,8 +28,8 @@ const About = () => {
             />
           </div>
           <div className="about__experience-badge">
-            <span className="about__badge-num">18+</span>
-            <span className="about__badge-text">Years of<br />Excellence</span>
+            <span className="about__badge-num">5+</span>
+            <span className="about__badge-text">Years of<br />Experience</span>
           </div>
         </div>
 
@@ -41,18 +41,18 @@ const About = () => {
             align="left"
           />
           <p className="about__text">
-            AKA Associates has been at the forefront of the construction and architectural industry for over 18 years. We specialize in transforming bold visions into tangible realities across residential, commercial, and industrial sectors.
+            AKA Associates is a growing construction and architectural firm focused on creating practical, well-designed spaces for our clients. We work closely with homeowners and businesses to understand their requirements and turn their ideas into thoughtfully planned projects.
           </p>
           <p className="about__text">
-            Our team of expert architects, engineers, and project managers are united by a single goal: delivering uncompromising quality, on time and within budget.
+            From planning and building approvals to construction, elevation, interiors, and renovation, we provide a range of services under one roof. Our approach is simple — understand the client's needs, maintain quality throughout the project, and deliver with transparency.
           </p>
 
           <ul className="about__list">
             {[
-              "Award-Winning Architectural Designs",
-              "Premium Materials & Craftsmanship",
-              "Transparent Project Tracking",
-              "Timely Delivery & Handover",
+              "Practical & Modern Designs",
+              "Quality Materials & Workmanship",
+              "Clear Communication",
+              "Reliable Project Delivery",
             ].map((item) => (
               <li key={item} className="about__list-item">
                 <CheckCircle2 size={18} className="about__list-icon" />

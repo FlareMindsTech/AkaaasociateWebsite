@@ -22,6 +22,7 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border);
 }
 
 .about__img-main img {
@@ -39,8 +40,9 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-xl);
-  border: 12px solid var(--color-bg);
+  border: 10px solid var(--color-bg);
   transform: translateY(-50%);
+  transition: border-color 0.3s ease;
 }
 
 .about__img-sub img {
@@ -51,16 +53,16 @@
 
 .about__experience-badge {
   position: absolute;
-  bottom: 40px;
+  bottom: 30px;
   left: -20px;
   background: var(--color-primary);
-  color: white;
-  padding: 32px;
+  color: #FFFFFF;
+  padding: 28px 32px;
   border-radius: var(--radius-md);
-  box-shadow: 0 16px 32px rgba(225, 29, 46, 0.3);
+  box-shadow: 0 16px 32px var(--color-primary-glow);
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 6px;
   z-index: 3;
 }
 
@@ -73,11 +75,12 @@
 }
 
 .about__badge-text {
-  font-size: 14px;
-  font-weight: 600;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.9;
+  letter-spacing: 0.06em;
+  opacity: 0.95;
 }
 
 /* Content */
@@ -87,27 +90,31 @@
 }
 
 .about__text {
-  font-size: 18px;
-  line-height: 1.7;
-  color: var(--color-gray-600);
-  margin-bottom: 24px;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.75;
+  color: var(--color-text-secondary);
+  margin-bottom: 20px;
+  transition: color 0.3s ease;
 }
 
 .about__list {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  margin-top: 32px;
-  margin-bottom: 40px;
+  margin-top: 28px;
+  margin-bottom: 36px;
 }
 
 .about__list-item {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--color-secondary);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+  transition: color 0.3s ease;
 }
 
 .about__list-icon {
@@ -152,14 +159,14 @@
   }
 
   .about__inner {
-    gap: 60px; /* Space between gallery and content */
+    gap: 60px;
   }
 
   .about__gallery {
     width: 100%;
-    max-width: 480px; /* Center the image group */
+    max-width: 480px;
     margin: 0 auto;
-    display: block; /* Remove flex column */
+    display: block;
   }
 
   .about__img-main {
@@ -211,16 +218,10 @@
 
   .about__content {
     width: 100%;
-    margin-top: 10px; /* Additional breathing room */
+    margin-top: 10px;
   }
 
-  /* Reduce heading font size slightly */
-  .about__content .section-title__heading {
-    font-size: clamp(26px, 6vw, 32px);
-  }
-
-  /* Ensure text blocks don't stretch edge-to-edge */
   .about__text {
-    font-size: 16px;
+    font-size: 15px;
   }
 }

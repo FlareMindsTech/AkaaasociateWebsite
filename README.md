@@ -1,24 +1,17 @@
-# 🌐 Akaa Associate Website
+# 🌐 AKA Associates Website
 
-This is the official website for **Akaa Associate**, developed and maintained by **Srilakshman K** during his internship at **FlareMinds**, and now actively used in production.
+Official website for **AKA Associates** — Builders & Architects, Mannargudi, Tamil Nadu.
 
 🔗 **Live Website:** https://www.akaassociate.com
 
 ---
 
-## 🏢 Organization
-
-Developed under: **FlareMinds**
-Role: Software Developer
-
----
-
 ## 🚀 Tech Stack
 
-* **Frontend:** React + Vite
-* **Language:** JavaScript (ES6+)
-* **Styling:** CSS
-* **Build Tool:** Vite
+- **Frontend:** React 19 + Vite
+- **Language:** JavaScript (ES6+)
+- **Styling:** Vanilla CSS (BEM naming convention)
+- **Contact Form:** Web3Forms (frontend-safe email delivery)
 
 ---
 
@@ -26,57 +19,84 @@ Role: Software Developer
 
 ```
 src/
-│── components/   # Reusable UI components  
-│── pages/        # Main website pages  
-│── sections/     # Homepage sections  
-│── assets/       # Images and icons  
-│── data/         # Static content  
+├── animations/       # Canvas-based hero animation engine
+│   └── hero/         # 3D architectural blueprint animation (10 modules)
+├── assets/
+│   └── img/          # Static images (logo, about section photos)
+├── components/       # Reusable UI components
+│   ├── projects/     # ProjectCard, ProjectGallery
+│   └── services/     # ServiceCard
+├── data/             # Static website content (services, projects, testimonials)
+├── pages/            # Route-level pages (Home, ProjectsPage, PrivacyPolicy, TermsOfService)
+├── sections/         # Homepage sections (Hero, Services, Projects, Process, About, Testimonials, CTA, Contact)
+├── services/         # External API integrations (Web3Forms contact form)
+├── utils/            # Shared helper functions (navigation)
+├── App.jsx           # Root component — routing, theme state
+├── main.jsx          # Entry point
+└── index.css         # Global design system tokens (light/dark themes)
 ```
 
 ---
 
-## ⚙️ Getting Started (Development)
+## ⚙️ Getting Started
 
 ### 1. Clone the repository
 
-```
+```bash
 git clone https://github.com/FlareMindsTech/AkaaassociateWebsite.git
+cd AkaaassociateWebsite
 ```
 
 ### 2. Install dependencies
 
-```
+```bash
 npm install
 ```
 
-### 3. Run development server
+### 3. Configure environment variables
 
+```bash
+cp .env.example .env
 ```
+
+Edit `.env` and add your Web3Forms access key. Get a free key at [web3forms.com](https://web3forms.com).
+
+### 4. Run development server
+
+```bash
 npm run dev
 ```
 
-### 4. Open in browser
+### 5. Open in browser
 
 ```
 http://localhost:5173
+```
+
+### 6. Production build
+
+```bash
+npm run build
 ```
 
 ---
 
 ## ✨ Features
 
-* Fully responsive design across devices
-* Clean and modern UI/UX
-* Optimized performance using Vite
-* Modular and scalable component architecture
-* Production-ready deployment
+- Fully responsive design across devices
+- Light & dark theme with toggle and localStorage persistence
+- 3D architectural blueprint hero animation (custom canvas engine)
+- Infinite CSS marquee for services showcase
+- Project photo gallery with lightbox, keyboard navigation, and touch swipe
+- Contact form with client-side validation and Web3Forms email delivery
+- Static map with Google Maps external link
+- Privacy Policy and Terms of Service pages
 
 ---
 
-## 🌍 Deployment
+## 🏢 Organization
 
-The project is successfully deployed and live at:
-👉 https://www.akaassociate.com
+Developed under: **FlareMinds**
 
 ---
 
@@ -85,13 +105,12 @@ The project is successfully deployed and live at:
 **Srilakshman K**
 Software Developer @ FlareMinds
 
-* GitHub: https://github.com/SrilakshmanK
-* Portfolio: https://srilakshmank.github.io/portfolio/
-* LinkedIn: https://www.linkedin.com/in/Srilakshman-K-WebDeveloper
+- GitHub: https://github.com/SrilakshmanK
+- Portfolio: https://srilakshmank.github.io/portfolio/
+- LinkedIn: https://www.linkedin.com/in/Srilakshman-K-WebDeveloper
 
 ---
 
 ## 📌 Acknowledgment
 
 This project was initially built during the **FlareMinds Internship Program** and later enhanced as part of ongoing professional work.
-
