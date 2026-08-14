@@ -11,7 +11,7 @@ import "./ThemeToggle.css";
  * @param {string} className - optional extra class names
  */
 const ThemeToggle = ({
-  theme = "dark",
+  theme = "light",
   toggleTheme,
   showLabel = false,
   className = "",

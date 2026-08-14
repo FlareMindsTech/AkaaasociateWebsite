@@ -1,6 +1,6 @@
 // src/components/projects/ProjectGallery.jsx
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { X, ChevronLeft, ChevronRight, Images } from "lucide-react";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import "./ProjectGallery.css";
 
 /**

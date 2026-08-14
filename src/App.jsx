@@ -10,11 +10,11 @@ import TermsOfService from "./pages/TermsOfService";
 import ScrollToHash from "./components/ScrollToHash";
 
 function App() {
-  // Read saved theme from localStorage or default to 'dark'
+  // Read saved theme from localStorage or default to 'light'
   const [theme, setTheme] = useState(() => {
     const saved = localStorage.getItem("aka_theme");
     if (saved === "light" || saved === "dark") return saved;
-    return "dark"; // Default dark mode matching reference design
+    return "light"; // Default to light theme
   });
 
   useEffect(() => {

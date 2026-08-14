@@ -223,25 +223,6 @@ select {
   background-color: var(--color-bg-subtle);
 }
 
-.section--dark {
-  background-color: var(--color-surface);
-  color: var(--color-text);
-}
-
-.flex {
-  display: flex;
-}
-
-.flex-center {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.grid {
-  display: grid;
-}
-
 /* ---------- Typography ---------- */
 h1,
 h2,
@@ -255,22 +236,6 @@ h6 {
   letter-spacing: -0.02em;
   color: var(--color-text);
   transition: color 0.3s ease;
-}
-
-.text-primary {
-  color: var(--color-primary);
-}
-
-.text-white {
-  color: #FFFFFF;
-}
-
-.text-muted {
-  color: var(--color-text-muted);
-}
-
-.font-display {
-  font-family: var(--font-display);
 }
 
 /* ---------- Scrollbar ---------- */

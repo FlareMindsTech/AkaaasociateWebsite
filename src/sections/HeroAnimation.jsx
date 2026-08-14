@@ -7,7 +7,7 @@ import './HeroAnimation.css';
  * HeroAnimation React Component
  * Encapsulates the canvas DOM mounting and lifecycle for the 3D Blueprint engine.
  */
-const HeroAnimation = ({ theme = 'dark' }) => {
+const HeroAnimation = ({ theme = 'light' }) => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
   const themeRef = useRef(theme);

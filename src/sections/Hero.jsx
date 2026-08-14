@@ -10,7 +10,7 @@ const METRICS = [
   { value: '100%', label: 'Commitment' },
 ];
 
-const Hero = ({ theme = 'dark' }) => {
+const Hero = ({ theme = 'light' }) => {
   const scrollTo = (id) => {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
