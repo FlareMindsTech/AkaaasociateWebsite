@@ -15,8 +15,8 @@
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   transition: transform 0.4s cubic-bezier(0.2, 1, 0.3, 1),
-              box-shadow 0.4s ease,
-              border-color 0.3s ease;
+    box-shadow 0.4s ease,
+    border-color 0.3s ease;
 }
 
 .project-card:focus-visible {
@@ -113,19 +113,29 @@ html.dark .project-card__overlay-label {
   padding: 16px 18px;
 }
 
-.project-card__number {
-  font-family: var(--font-display);
-  font-size: 28px;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--color-primary);
+
+/* ---------- Red Accent Line ---------- */
+
+.project-card__accent {
+  width: 4px;
+  height: 38px;
   flex-shrink: 0;
+  border-radius: var(--radius-full);
+  background: var(--color-primary);
+  transition: height 0.3s ease,
+    transform 0.3s ease;
 }
+
+.project-card:hover .project-card__accent {
+  height: 42px;
+  transform: scaleX(1.05);
+}
+
 
 .project-card__text {
   flex: 1;
-  min-width: 0; /* allow text truncation */
+  min-width: 0;
+  /* allow text truncation */
 }
 
 .project-card__title {
@@ -192,8 +202,9 @@ html.dark .project-card__overlay-label {
     gap: 18px;
   }
 
-  .project-card--hero .project-card__number {
-    font-size: 36px;
+  .project-card--hero .project-card__accent {
+    width: 5px;
+    height: 44px;
   }
 
   .project-card--hero .project-card__title {
@@ -218,8 +229,9 @@ html.dark .project-card__overlay-label {
     gap: 16px;
   }
 
-  .project-card--secondary .project-card__number {
-    font-size: 30px;
+  .project-card--secondary .project-card__accent {
+    width: 4px;
+    height: 38px;
   }
 
   .project-card--secondary .project-card__title {
@@ -230,8 +242,7 @@ html.dark .project-card__overlay-label {
 
 /* ---------- Mobile Tweaks ---------- */
 /* Cards must fit comfortably in a 2-column grid on mobile.
-   Typography is scaled down, project number is subtle,
-   and title wraps instead of truncating. */
+   Typography is scaled down, and the red accent becomes compact. */
 
 @media (max-width: 768px) {
   .project-card {
@@ -252,12 +263,18 @@ html.dark .project-card__overlay-label {
     gap: 8px;
   }
 
-  /* Subtle, compact project number */
-  .project-card__number {
-    font-size: 16px;
-    font-weight: 700;
-    opacity: 0.7;
+
+  /* Compact red accent */
+  .project-card__accent {
+    width: 3px;
+    height: 30px;
   }
+
+  .project-card:hover .project-card__accent {
+    height: 30px;
+    transform: none;
+  }
+
 
   /* Allow title to wrap to 2 lines instead of truncating */
   .project-card__title {

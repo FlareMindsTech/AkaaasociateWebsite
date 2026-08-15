@@ -7,7 +7,7 @@ export const projects = [
 
   {
     id: 1,
-    title: "Residential Project 01",
+    title: "Blue Haven Residence",
     category: "Residential",
     images: [
       "/akaprojects/Residential/project1/1.webp",
@@ -19,7 +19,7 @@ export const projects = [
 
   {
     id: 2,
-    title: "Residential Project 02",
+    title: "Vibrant Courtyard Residence",
     category: "Residential",
     images: [
       "/akaprojects/Residential/project2/0.webp",
@@ -31,7 +31,7 @@ export const projects = [
 
   {
     id: 3,
-    title: "Residential Project 03",
+    title: "Garden Edge Residence",
     category: "Residential",
     images: [
       "/akaprojects/Residential/project3/0.webp",
@@ -44,7 +44,7 @@ export const projects = [
 
   {
     id: 4,
-    title: "Residential Project 04",
+    title: "Contemporary Glass Residence",
     category: "Residential",
     images: [
       "/akaprojects/Residential/project4/11.webp",
@@ -57,7 +57,7 @@ export const projects = [
 
   {
     id: 5,
-    title: "Residential Project 05",
+    title: "Modern Brick Accent Residence",
     category: "Residential",
     images: [
       "/akaprojects/Residential/project5/1.webp",
@@ -73,7 +73,7 @@ export const projects = [
 
   {
     id: 6,
-    title: "Interior Project 01",
+    title: "Warm Heritage Interior",
     category: "Interior",
     images: [
       "/akaprojects/Interior/Interior1/5.webp",
@@ -85,7 +85,7 @@ export const projects = [
 
   {
     id: 7,
-    title: "Interior Project 02",
+    title: "Classic Blue Interior",
     category: "Interior",
     images: [
       "/akaprojects/Interior/Interior2/1.webp",
@@ -96,7 +96,7 @@ export const projects = [
 
   {
     id: 8,
-    title: "Interior Project 03",
+    title: "Natural Wood Retreat",
     category: "Interior",
     images: [
       "/akaprojects/Interior/Interior3/10.webp",
@@ -111,7 +111,7 @@ export const projects = [
 
   {
     id: 9,
-    title: "Interior Project 04",
+    title: "Modern Rustic Interior",
     category: "Interior",
     images: [
       "/akaprojects/Interior/Interior4/2.webp",
