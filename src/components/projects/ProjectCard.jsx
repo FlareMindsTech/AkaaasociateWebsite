@@ -13,16 +13,16 @@ import "./ProjectCard.css";
  * until the user actually opens the gallery.
  *
  * @param {Object}   project   - Project data object from projects.js
- * @param {number}   index     - Display index (used for the project number label)
- * @param {boolean}  isHero    - If true, renders as the large hero card (homepage first project)
+ * @param {number}   index     - Display index (kept for compatibility)
+ * @param {boolean}  isHero    - If true, renders as the large hero card
  * @param {Function} onSelect  - Callback to open the project gallery
  */
 const ProjectCard = ({ project, index, isHero = false, onSelect }) => {
   const coverImage = project.images?.[0] || "";
   const photoCount = project.images?.length || 0;
-  const formattedIndex = String(index + 1).padStart(2, "0");
 
   const handleClick = () => onSelect(project);
+
   const handleKeyDown = (e) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
@@ -32,7 +32,10 @@ const ProjectCard = ({ project, index, isHero = false, onSelect }) => {
 
   return (
     <article
-      className={`project-card ${isHero ? "project-card--hero" : "project-card--secondary"}`}
+      className={`project-card ${isHero
+          ? "project-card--hero"
+          : "project-card--secondary"
+        }`}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       tabIndex={0}
@@ -47,25 +50,48 @@ const ProjectCard = ({ project, index, isHero = false, onSelect }) => {
           className="project-card__image"
           loading="lazy"
         />
-        <div className="project-card__image-overlay" aria-hidden="true">
-          <span className="project-card__overlay-label">View Gallery</span>
+
+        <div
+          className="project-card__image-overlay"
+          aria-hidden="true"
+        >
+          <span className="project-card__overlay-label">
+            View Gallery
+          </span>
         </div>
       </div>
 
       {/* Project Info */}
       <div className="project-card__info">
-        <span className="project-card__number" aria-hidden="true">
-          {formattedIndex}
-        </span>
+
+        {/* Decorative red accent */}
+        <span
+          className="project-card__accent"
+          aria-hidden="true"
+        />
+
         <div className="project-card__text">
-          <h3 className="project-card__title">{project.title}</h3>
+          <h3 className="project-card__title">
+            {project.title}
+          </h3>
+
           <p className="project-card__meta">
             {project.category}
-            <span className="project-card__meta-sep" aria-hidden="true">·</span>
-            {photoCount} {photoCount === 1 ? "photograph" : "photographs"}
+            <span
+              className="project-card__meta-sep"
+              aria-hidden="true"
+            >
+              ·
+            </span>
+            {photoCount}{" "}
+            {photoCount === 1 ? "photograph" : "photographs"}
           </p>
         </div>
-        <span className="project-card__arrow" aria-hidden="true">
+
+        <span
+          className="project-card__arrow"
+          aria-hidden="true"
+        >
           <ArrowRight size={18} />
         </span>
       </div>
