@@ -2,72 +2,85 @@
 import React from "react";
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
-import ServiceCard from "../components/services/ServiceCard";
+import ServiceCarousel from "../components/services/ServiceCarousel";
+import ServicesHeaderArtwork from "../components/services/ServicesHeaderArtwork";
 import { services } from "../data/services";
 import "./Services.css";
 
 /**
  * Services Section
  *
- * A clean, continuous horizontal marquee powered entirely by CSS keyframes.
- * - Slowly and continuously travels from right to left
- * - Seamless infinite loop using two identical service groups
- * - Pauses on hover via CSS animation-play-state
- * - Zero complex state, refs, animation loops, or external carousel libraries
+ * Large, editorial split-carousel showcase with vector architectural drafting header artwork.
+ * - Centered, balanced header framed by custom architectural technical drawings (Floor Plan & Elevation)
+ * - Subtle "PLAN → DESIGN → BUILD" project journey indicator
+ * - ONE active service at a time (Left: Text, Right: Large Image)
+ * - Zero visible numbering or service counters
+ * - Fully responsive with zero horizontal overflow
  */
 const Services = () => {
-  const scrollToContact = () => {
+  const scrollToContact = (selectedService) => {
     const contactSection = document.getElementById("contact");
     if (contactSection) {
       contactSection.scrollIntoView({ behavior: "smooth" });
+
+      // If a specific service was chosen, auto-select it in the contact dropdown
+      if (selectedService && selectedService.title) {
+        const selectElement = document.getElementById("service");
+        if (selectElement) {
+          selectElement.value = selectedService.title;
+          selectElement.dispatchEvent(new Event("change", { bubbles: true }));
+        }
+      }
     }
   };
 
   return (
     <section className="services section section--bg" id="services">
       <div className="container">
-        {/* Section Header */}
-        <div className="services__header-row">
-          <SectionTitle
-            label="What We Do"
-            title="Services Built Around<br/>Your Project"
-            subtitle="From planning and approvals to construction, interiors, and structural work, explore the services we provide."
-            align="left"
-            className="services__section-title"
-          />
-        </div>
-      </div>
+        {/* Centered Section Header with Architectural Technical Vector Artwork */}
+        <div className="services__header-wrap">
+          {/* Architectural Drawing System (Floor Plan Left, Elevation Right, Connecting Datum Lines) */}
+          <ServicesHeaderArtwork />
 
-      {/* Infinite Horizontal Marquee */}
-      <div className="services__carousel-wrapper">
-        {/* Edge Gradient Fades */}
-        <div className="services__fade services__fade--left" aria-hidden="true" />
-        <div className="services__fade services__fade--right" aria-hidden="true" />
+          {/* Centered Main Header Content */}
+          <div className="services__header-content">
+            <SectionTitle
+              label="What We Do"
+              title="Services Built Around<br/>Your Project"
+              subtitle="From planning and statutory approvals to turnkey construction, interiors, and structural engineering, explore the comprehensive services we provide."
+              align="center"
+              className="services__section-title"
+            />
 
-        {/* Marquee Viewport & Track */}
-        <div className="services__viewport">
-          <div className="services__track">
-            {/* First Set of Services */}
-            <div className="services__group">
-              {services.map((service) => (
-                <ServiceCard key={service.id} service={service} />
-              ))}
-            </div>
-
-            {/* Second Identical Set (creates the seamless infinite loop) */}
-            <div className="services__group" aria-hidden="true">
-              {services.map((service) => (
-                <ServiceCard key={`dup-${service.id}`} service={service} />
-              ))}
+            {/* Subtle Architectural Project Journey Indicator */}
+            <div
+              className="services__journey"
+              aria-label="Project Journey: Plan, Design, Build"
+            >
+              <span className="services__journey-step">PLAN</span>
+              <span className="services__journey-arrow" aria-hidden="true">→</span>
+              <span className="services__journey-step">DESIGN</span>
+              <span className="services__journey-arrow" aria-hidden="true">→</span>
+              <span className="services__journey-step">BUILD</span>
             </div>
           </div>
         </div>
-      </div>
 
-      <div className="container">
+        {/* Large Editorial Split Carousel */}
+        <div className="services__carousel-wrap">
+          <ServiceCarousel
+            services={services}
+            onSelectContact={scrollToContact}
+          />
+        </div>
+
         {/* Bottom CTA */}
         <div className="services__cta">
-          <Button variant="outline" size="lg" onClick={scrollToContact}>
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={() => scrollToContact(null)}
+          >
             Discuss Your Project
           </Button>
         </div>

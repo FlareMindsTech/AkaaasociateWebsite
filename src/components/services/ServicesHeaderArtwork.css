@@ -1,0 +1,350 @@
+/* src/components/services/ServicesHeaderArtwork.css */
+
+.services-art {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Central Connecting Horizontal Datum Lines */
+.services-art__connecting-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  pointer-events: none;
+}
+
+.services-art__connecting-line--top {
+  top: 24%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-border) 18%,
+    var(--color-border-subtle) 50%,
+    var(--color-border) 82%,
+    transparent 100%
+  );
+  opacity: 0.5;
+}
+
+.services-art__connecting-line--bottom {
+  bottom: 22%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--color-border) 22%,
+    var(--color-border-subtle) 50%,
+    var(--color-border) 78%,
+    transparent 100%
+  );
+  opacity: 0.35;
+}
+
+/* Side Artwork Containers */
+.services-art__side {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 380px;
+  max-width: 36%;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: artEntrance 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes artEntrance {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+/* Left: Floor Plan with Gradient Mask Fading Toward Center */
+.services-art__side--left {
+  left: -24px;
+  mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0) 100%);
+}
+
+/* Right: Elevation Drawing with Gradient Mask Fading Toward Center */
+.services-art__side--right {
+  right: -24px;
+  mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0) 100%);
+  -webkit-mask-image: linear-gradient(to left, rgba(0, 0, 0, 1) 55%, rgba(0, 0, 0, 0) 100%);
+}
+
+.services-art__svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  stroke: var(--color-text);
+  fill: none;
+}
+
+/* ============================================================
+   LAYERED DEPTH SYSTEM
+   ============================================================ */
+
+/* Layer 1: Background Technical Grid (~0.04 Opacity) */
+.services-art__layer-grid {
+  opacity: 0.14;
+  stroke: var(--color-text-muted);
+  stroke-width: 0.5px;
+  stroke-dasharray: 4, 4;
+  fill: var(--color-text-muted);
+}
+
+.services-art__centerline {
+  stroke-dasharray: 8, 4, 2, 4;
+  stroke-width: 0.75px;
+}
+
+/* Layer 2: Main Architectural Linework (~0.12-0.20 Opacity) */
+.services-art__layer-lines {
+  opacity: 0.26;
+}
+
+.services-art__wall-thick {
+  stroke: var(--color-text);
+  stroke-width: 1.75px;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+
+.services-art__wall-thin {
+  stroke: var(--color-text);
+  stroke-width: 0.75px;
+}
+
+.services-art__door-arc {
+  stroke: var(--color-text);
+  stroke-width: 0.75px;
+  stroke-dasharray: 3, 3;
+}
+
+.services-art__door-leaf {
+  stroke: var(--color-text);
+  stroke-width: 1.25px;
+}
+
+.services-art__window {
+  stroke: var(--color-text);
+  stroke-width: 0.75px;
+}
+
+.services-art__window-frame {
+  stroke: var(--color-text);
+  stroke-width: 1px;
+}
+
+.services-art__mullion {
+  stroke: var(--color-text);
+  stroke-width: 0.75px;
+}
+
+.services-art__louver {
+  stroke: var(--color-text);
+  stroke-width: 0.75px;
+  opacity: 0.8;
+}
+
+.services-art__iso-line {
+  stroke: var(--color-text);
+  stroke-width: 0.75px;
+  stroke-dasharray: 4, 3;
+  opacity: 0.6;
+}
+
+.services-art__stairs line {
+  stroke: var(--color-text);
+  stroke-width: 0.75px;
+}
+
+.services-art__stair-arrow {
+  stroke: var(--color-text);
+  stroke-width: 0.75px;
+}
+
+.services-art__column {
+  fill: var(--color-text);
+  stroke: var(--color-text);
+  stroke-width: 0.75px;
+  opacity: 0.85;
+}
+
+/* Layer 3: Dimension Lines & Datum Levels (~0.18-0.28 Opacity) */
+.services-art__layer-dimensions {
+  opacity: 0.32;
+  stroke: var(--color-text-secondary);
+  fill: var(--color-text-secondary);
+}
+
+.services-art__dim-line {
+  stroke: var(--color-text-secondary);
+  stroke-width: 0.75px;
+}
+
+.services-art__dim-witness {
+  stroke: var(--color-text-secondary);
+  stroke-width: 0.5px;
+}
+
+.services-art__dim-tick {
+  stroke: var(--color-primary);
+  stroke-width: 1.25px;
+  opacity: 0.9;
+}
+
+.services-art__dim-text {
+  font-family: var(--font-sans);
+  font-size: 7.5px;
+  font-weight: 600;
+  fill: var(--color-text-secondary);
+  letter-spacing: 0.05em;
+}
+
+.services-art__datum-marker {
+  fill: var(--color-primary);
+  stroke: var(--color-primary);
+  stroke-width: 0.75px;
+  opacity: 0.8;
+}
+
+.services-art__datum-marker--ground {
+  fill: var(--color-text);
+  stroke: var(--color-text);
+  opacity: 0.8;
+}
+
+.services-art__ground-line {
+  stroke: var(--color-text);
+  stroke-width: 1.5px;
+}
+
+.services-art__ground-hatch {
+  stroke: var(--color-text);
+  stroke-width: 0.75px;
+  opacity: 0.6;
+}
+
+.services-art__datum-text {
+  font-family: var(--font-sans);
+  font-size: 7.5px;
+  font-weight: 600;
+  fill: var(--color-text);
+}
+
+/* Layer 4: Accent Elements (Restrained Red Touch) */
+.services-art__layer-accent {
+  opacity: 0.42;
+}
+
+.services-art__accent-circle {
+  stroke: var(--color-primary);
+  stroke-width: 0.75px;
+  stroke-dasharray: 2, 2;
+}
+
+.services-art__accent-arrow {
+  fill: var(--color-primary);
+  stroke: var(--color-primary);
+  stroke-width: 0.5px;
+}
+
+.services-art__accent-text {
+  font-family: var(--font-display);
+  font-size: 7px;
+  font-weight: 700;
+  fill: var(--color-primary);
+}
+
+.services-art__axis-circle {
+  stroke: var(--color-text-secondary);
+  stroke-width: 0.75px;
+  fill: var(--color-surface);
+}
+
+.services-art__axis-text {
+  font-family: var(--font-display);
+  font-size: 6px;
+  font-weight: 700;
+  fill: var(--color-text);
+}
+
+/* Dark Theme Adjustments */
+html.dark .services-art__layer-grid {
+  opacity: 0.18;
+}
+
+html.dark .services-art__layer-lines {
+  opacity: 0.32;
+}
+
+html.dark .services-art__layer-dimensions {
+  opacity: 0.38;
+}
+
+html.dark .services-art__layer-accent {
+  opacity: 0.5;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Small Desktop (<= 1200px) */
+@media (max-width: 1200px) {
+  .services-art__side {
+    width: 320px;
+  }
+
+  .services-art__side--left {
+    left: -15px;
+  }
+
+  .services-art__side--right {
+    right: -15px;
+  }
+}
+
+/* Tablet (<= 1024px) */
+@media (max-width: 1024px) {
+  .services-art__side {
+    width: 240px;
+    height: 220px;
+    opacity: 0.8;
+  }
+
+  .services-art__side--left {
+    left: -10px;
+  }
+
+  .services-art__side--right {
+    right: -10px;
+  }
+}
+
+/* Mobile Devices (<= 768px) */
+@media (max-width: 768px) {
+  /* On mobile, cleanly hide background vector drawings to ensure 100% clean typography and zero overflow */
+  .services-art {
+    display: none;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .services-art__side {
+    animation: none;
+  }
+}
