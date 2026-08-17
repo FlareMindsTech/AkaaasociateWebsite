@@ -1,148 +1,173 @@
 /* src/sections/Services.css */
 
 .services {
-  padding: 56px 0 60px;
+  padding: 72px 0 80px;
   background-color: var(--color-bg-subtle);
   position: relative;
   overflow: hidden;
   transition: var(--theme-transition);
 }
 
-/* Header Row */
-.services__header-row {
-  margin-bottom: 28px;
-}
+/* ============================================================
+   CENTERED HEADER WRAPPER WITH ARCHITECTURAL VECTOR ARTWORK
+   ============================================================ */
 
-.services__header-row .section-title {
-  margin-bottom: 0;
-  max-width: 680px;
-}
-
-.services__header-row .section-title__subtitle {
-  margin-bottom: 0;
-}
-
-/* Horizontal Marquee Wrapper */
-.services__carousel-wrapper {
+.services__header-wrap {
   position: relative;
   width: 100%;
-  overflow: hidden;
   margin-bottom: 32px;
-}
-
-/* Edge Gradient Fades */
-.services__fade {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 64px;
-  z-index: 3;
-  pointer-events: none;
-}
-
-.services__fade--left {
-  left: 0;
-  background: linear-gradient(90deg, var(--color-bg-subtle) 0%, transparent 100%);
-}
-
-.services__fade--right {
-  right: 0;
-  background: linear-gradient(270deg, var(--color-bg-subtle) 0%, transparent 100%);
-}
-
-/* Viewport: Strict overflow hidden - NO scrollbars under any circumstances */
-.services__viewport {
-  width: 100%;
-  overflow: hidden;
-  padding: 12px 0;
-}
-
-/* Moving Track: Continuous GPU translate3d marquee */
-.services__track {
   display: flex;
-  width: max-content;
-  will-change: transform;
-  animation: servicesMarquee 38s linear infinite;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Hover Pause: Hovering over viewport or track pauses the marquee */
-.services__viewport:hover .services__track,
-.services__track:hover {
-  animation-play-state: paused;
-}
-
-/* Identical service groups side by side */
-.services__group {
-  display: flex;
-  flex-shrink: 0;
-  gap: 20px;
-  padding-right: 20px; /* Padding matches gap so the loop point gap is identical */
-}
-
-/* Seamless infinite right-to-left marquee keyframes */
-@keyframes servicesMarquee {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
-/* Bottom CTA */
-.services__cta {
+/* Centered Header Content */
+.services__header-content {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin-inline: auto;
   text-align: center;
-  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Tablet Responsive */
+.services__header-content .section-title {
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.services__header-content .section-title__subtitle {
+  margin-bottom: 16px;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+/* Subtle Architectural Project Journey Indicator */
+.services__journey {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 6px 18px;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-family: var(--font-display);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+  margin-top: 4px;
+  transition: var(--theme-transition);
+}
+
+.services__journey-step {
+  color: var(--color-text);
+}
+
+.services__journey-arrow {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+/* ============================================================
+   CAROUSEL CONTAINER & CTA
+   ============================================================ */
+
+.services__carousel-wrap {
+  width: 100%;
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 2;
+}
+
+.services__cta {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+/* Tablet (<= 1024px) */
 @media (max-width: 1024px) {
   .services {
-    padding: 48px 0 52px;
+    padding: 56px 0 64px;
   }
 
-  .services__header-row {
-    margin-bottom: 22px;
+  .services__header-wrap {
+    margin-bottom: 26px;
   }
 
-  .services__fade {
-    width: 36px;
-  }
-
-  .services__group {
-    gap: 16px;
-    padding-right: 16px;
-  }
-
-  .services__track {
-    animation-duration: 32s;
+  .services__carousel-wrap {
+    margin-bottom: 28px;
   }
 }
 
-/* Mobile Responsive */
+/* Mobile Devices (<= 768px) */
 @media (max-width: 768px) {
   .services {
-    padding: 40px 0 44px;
+    padding: 48px 0 56px;
   }
 
-  .services__header-row {
+  .services__header-wrap {
+    margin-bottom: 20px;
+  }
+
+  .services__header-content .section-title__subtitle {
+    font-size: 0.9375rem;
+    margin-bottom: 14px;
+  }
+
+  .services__journey {
+    gap: 8px;
+    padding: 5px 14px;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+  }
+
+  .services__carousel-wrap {
+    margin-bottom: 24px;
+  }
+}
+
+/* Small Mobile (<= 480px) */
+@media (max-width: 480px) {
+  .services {
+    padding: 40px 0 48px;
+  }
+
+  .services__header-wrap {
     margin-bottom: 18px;
   }
 
-  .services__carousel-wrapper {
-    margin-bottom: 24px;
+  .services__journey {
+    gap: 6px;
+    padding: 4px 12px;
+    font-size: 0.6875rem;
   }
 
-  .services__group {
-    gap: 12px;
-    padding-right: 12px;
+  .services__carousel-wrap {
+    margin-bottom: 20px;
+  }
+}
+
+/* Extra Small Mobile (<= 360px) */
+@media (max-width: 360px) {
+  .services {
+    padding: 36px 0 42px;
   }
 
-  .services__fade {
-    width: 20px;
-  }
-
-  .services__track {
-    animation-duration: 28s;
+  .services__journey {
+    gap: 4px;
+    padding: 3px 10px;
+    font-size: 0.625rem;
   }
 }
